@@ -1,0 +1,47 @@
+
+
+#azd 
+echo "installing AZD"
+curl -fsSL https://aka.ms/install-azd.sh | bash
+
+# Azure CLI
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+#Static Web Apps CLI
+echo "installing SWA"
+npm install -g @azure/static-web-apps-cli
+
+# Azure Functions Core Tools
+echo "installing AZ FUNCTION"
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+sudo apt-get update
+sudo apt-get install azure-functions-core-tools-4
+
+
+# Remove default browser "Lynx"
+sudo apt remove lynx
+
+#Login AZD
+azd auth login
+
+#Login AZ
+az login --use-device-code
+
+#Environment
+JeffGPT_v3-dev
+
+#ModifyMainBecep
+#Change  gptDeploymentName and gptModelName
+#Remove openAi Deployment 
+
+#SWA Token
+SWA_DEPLOYMENT_TOKEN=$(az staticwebapp secrets list --name stapp-qvmd7dgrkbeq4 --query "properties.apiKey" --output tsv)
+
+
+#dist folder in frontend
+#put Index.html
+
+azd init
+azd up
