@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "watch": "tsc && vite build --watch"
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview"    
   },
   "dependencies": {
     "@fluentui/react": "^8.105.3",
@@ -30,3 +29,5 @@
     "vite": "^4.2.0"
   }
 }
+
+

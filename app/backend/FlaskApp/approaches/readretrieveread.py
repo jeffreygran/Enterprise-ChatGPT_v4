@@ -63,8 +63,8 @@ Question: {input}
 
 Thought: {agent_scratchpad}"""    
 
-    CognitiveSearchToolDescription = "useful for searching the Microsoft employee benefits information such as healthcare plans, retirement plans, etc."
-    PandasLookupToolDescription = "useful to lookup details about employees and their info"
+    CognitiveSearchToolDescription = "useful for searching the Azure and Cloud computing platform related sources."
+    PandasLookupToolDescription = "useful to lookup details about Azure and about Cloud computing platform"
     BingSearchToolDescription = "useful for searching latest information from the web and only if you cannot find answer from internal information sources"
 
     def __init__(self, search_client: SearchClient, openai_deployment: str, sourcepage_field: str, content_field: str):

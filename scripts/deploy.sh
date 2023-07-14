@@ -22,6 +22,7 @@ done
 # az account set --subscription $AZURE_SUBSCRIPTION_ID
 
 cd ./app/frontend
+npm run build
 SWA_DEPLOYMENT_TOKEN=$(az staticwebapp secrets list --name $AZURE_STATICWEBSITE_NAME --query "properties.apiKey" --output tsv)
 if [[ -n $SWA_DEPLOYMENT_TOKEN ]]; then
   swa deploy --env production --deployment-token $SWA_DEPLOYMENT_TOKEN
@@ -39,7 +40,7 @@ cd ../backend
 #   echo "AZURE_SEARCH_KEY is empty, not setting it. Go to Azure portal and set it manually."
 # fi
 
-func azure functionapp publish $AZURE_FUNCTION_NAME --python
+#func azure functionapp publish $AZURE_FUNCTION_NAME --python
 
 echo "Deployed successfully."
 cd ../..
